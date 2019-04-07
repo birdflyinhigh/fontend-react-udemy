@@ -53,6 +53,7 @@ class App extends Component {
         }
 
 
+
         return (
             <div className="App">
                 <h1>Cleaver Brooks</h1>
@@ -62,19 +63,12 @@ class App extends Component {
                 </button>
                 {this.state.showPerson ?
                     <div>
-                        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}
-                                click={this.swithNameHandler.bind(this, 'Tao Jian')}> i have a hobby </Person>
-                        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-                        <Person
-                            name={this.state.persons[2].name}
-                            age={this.state.persons[2].age}
-                            click={() => this.swithNameHandler('666')}
-                        />
-                        <Person
-                            name={this.state.persons[1].name}
-                            age={this.state.persons[1].age}
-                            changed={this.nameChangeHandler}
-                        />
+                        {this.state.persons.map(person =>{
+                            return <Person
+                                name={person.name}
+                                age= {person.age}
+                            />
+                        })}
                     </div> : null
                 }
             </div>
