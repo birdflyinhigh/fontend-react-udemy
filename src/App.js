@@ -10,7 +10,7 @@ class App extends Component {
             {id: '2', name: 'Zoe', age: Math.floor(Math.random() * 30)},
             {id: '3', name: 'Tao', age: Math.floor(Math.random() * 30)},
         ],
-        showPerson: false,
+        showPerson: true,
     }
     swithNameHandler = (newName) => {
         // alert('this is clicked');
@@ -47,20 +47,37 @@ class App extends Component {
 
     deletePersonHandler = (index) => {
         const persons = [...this.state.persons];
-        persons.splice(index, 1);
+        persons.splice(index, 1)
         this.setState({
             persons:persons,
-        });
+        })
     }
 
     render() {
 
         const style = {
-            backgroundColor: 'white',
+            backgroundColor: 'black',
+            color: 'white',
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
             cursor: 'pointer'
+        }
+
+        let persons = null;
+        if (this.state.showPerson){
+            persons = (<div>
+                {this.state.persons.map((person, index) => {
+                    return <Person
+                        name={person.name}
+                        age={person.age}
+                        click={this.deletePersonHandler.bind(this, index)}
+                        key={person.id}
+                        changed={(event) => this.nameChangeHandler(event, person.id)}
+                    />
+                })}
+            </div>);
+            style.backgroundColor = 'red';
         }
 
 
@@ -71,19 +88,7 @@ class App extends Component {
                 <button style={style}
                         onClick={this.togglePersonHandler}>Swith Names
                 </button>
-                {this.state.showPerson ?
-                    <div>
-                        {this.state.persons.map((person, index) => {
-                            return <Person
-                                name={person.name}
-                                age={person.age}
-                                click={this.deletePersonHandler.bind(this, index)}
-                                key={person.id}
-                                changed={(event) => this.nameChangeHandler(event, person.id)}
-                            />
-                        })}
-                    </div> : null
-                }
+                {persons}
             </div>
         );
     }
