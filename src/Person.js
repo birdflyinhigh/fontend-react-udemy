@@ -1,12 +1,18 @@
 import React from 'react';
 import './person.css';
+import Radium from 'radium';
 
 // ES6 语法，不要使用以前的语法
 
 // return some jsx
 const person = (props) => {
+    const style = {
+        '@media (min-width: 500px)': {
+            width: '450px'
+        }
+    }
     return (
-    <div className="person">
+    <div className="person" style={style}>
         <p onClick={props.click}>i am {props.name}, and i'm {props.age} years old</p>
         <p>{props.children}</p>
         <input type="text" onChange={props.changed} value={props.name}/>
@@ -15,6 +21,6 @@ const person = (props) => {
 };
 
 
-export default person;
+export default Radium(person);
 
 
