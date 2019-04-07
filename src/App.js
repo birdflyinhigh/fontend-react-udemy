@@ -9,7 +9,8 @@ class App extends Component {
             {name: 'Zhou', age: Math.floor(Math.random() * 30)},
             {name: 'Zoe', age: Math.floor(Math.random() * 30)},
             {name: 'Tao', age: Math.floor(Math.random() * 30)},
-        ]
+        ],
+        showPerson: false,
     }
     swithNameHandler = (newName) => {
         // alert('this is clicked');
@@ -24,7 +25,7 @@ class App extends Component {
         });
     }
 
-    nameChangeHandler = (event) =>{
+    nameChangeHandler = (event) => {
         this.setState({
             persons: [
                 {name: 'Pole', age: Math.floor(Math.random() * 30)},
@@ -33,18 +34,23 @@ class App extends Component {
             ]
         });
     }
+    togglePersonHandler = () => {
+        this.setState({
+                showPerson: !this.state.showPerson,
+            }
+        )
 
+    }
 
     render() {
 
-        const style={
+        const style = {
             backgroundColor: 'white',
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
-            cursor:'pointer'
+            cursor: 'pointer'
         }
-
 
 
         return (
@@ -52,22 +58,25 @@ class App extends Component {
                 <h1>Cleaver Brooks</h1>
                 <p>this is the client</p>
                 <button style={style}
-                    onClick={this.swithNameHandler.bind(this, 'Zhou Zhi')}>Swith Names</button>
-                <div>
-                    <Person name={this.state.persons[0].name} age={this.state.persons[0].age} click={this.swithNameHandler.bind(this, 'Tao Jian')}> i have a hobby </Person>
-                    <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
-                    <Person
-                        name={this.state.persons[2].name}
-                        age={this.state.persons[2].age}
-                        click={()=>this.swithNameHandler('666')}
-                    />
-                    <Person
-                        name={this.state.persons[1].name}
-                        age={this.state.persons[1].age}
-                        changed={this.nameChangeHandler}
-                    />
-                </div>
-
+                        onClick={this.togglePersonHandler}>Swith Names
+                </button>
+                {this.state.showPerson ?
+                    <div>
+                        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}
+                                click={this.swithNameHandler.bind(this, 'Tao Jian')}> i have a hobby </Person>
+                        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
+                        <Person
+                            name={this.state.persons[2].name}
+                            age={this.state.persons[2].age}
+                            click={() => this.swithNameHandler('666')}
+                        />
+                        <Person
+                            name={this.state.persons[1].name}
+                            age={this.state.persons[1].age}
+                            changed={this.nameChangeHandler}
+                        />
+                    </div> : null
+                }
             </div>
         );
     }
