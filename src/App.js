@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import Radium from 'radium';
 
 import Person from './Person'
 
@@ -65,6 +66,14 @@ class App extends Component {
         }
 
         let persons = null;
+        let classes = []
+        if (this.state.persons.length <=2) {
+            classes.push('red')
+        }
+
+        if (this.state.persons.length <=1){
+            classes.push('bold')
+        }
         if (this.state.showPerson){
             persons = (<div>
                 {this.state.persons.map((person, index) => {
@@ -84,7 +93,7 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>Cleaver Brooks</h1>
-                <p>this is the client</p>
+                <p className={classes.join(' ')}>this is the client</p>
                 <button style={style}
                         onClick={this.togglePersonHandler}>Swith Names
                 </button>
