@@ -6,9 +6,9 @@ import Person from './Person'
 class App extends Component {
     state = {
         persons: [
-            {name: 'Zhou', age: Math.floor(Math.random() * 30)},
-            {name: 'Zoe', age: Math.floor(Math.random() * 30)},
-            {name: 'Tao', age: Math.floor(Math.random() * 30)},
+            {id: '1', name: 'Zhou', age: Math.floor(Math.random() * 30)},
+            {id: '2', name: 'Zoe', age: Math.floor(Math.random() * 30)},
+            {id: '3', name: 'Tao', age: Math.floor(Math.random() * 30)},
         ],
         showPerson: false,
     }
@@ -75,6 +75,7 @@ class App extends Component {
                                 name={person.name}
                                 age={person.age}
                                 click={this.deletePersonHandler.bind(this, index)}
+                                key={person.id}
                             />
                         })}
                     </div> : null
