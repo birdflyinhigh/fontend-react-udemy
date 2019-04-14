@@ -670,5 +670,13 @@ import Classes from './App.css';
 + index.js： 存放入口
 
  
+#### 2. Splitting An App Into Components 
+
++ Persons: 如果不需要manage state的话，可以用function components 
+
+可以通props传 compenent的索引，可以传数据persons 
+
+将每个小的component分解  
+
 
 
