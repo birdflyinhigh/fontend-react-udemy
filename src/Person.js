@@ -1,6 +1,6 @@
 import React from 'react';
 import './person.css';
-import Radium from 'radium';
+
 
 // ES6 语法，不要使用以前的语法
 

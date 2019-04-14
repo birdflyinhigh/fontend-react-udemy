@@ -634,5 +634,19 @@ radium可以使用pseudo selector
 + 1. 首先去除掉所有的radium, 然后将所有的css样式写在css file中
 + 2. TWIKE THE BUILD CONFIGURATION IN THE PROJECT
 
+在webpack_config.js中添加
+```js
+{
+    importLoaders: 1,
+    sourceMap: isEnvProduction && shouldUseSourceMap,
+    modules: true,
+    localIndentName: '[name]__[local]__[hash:base64:5]'
+}
 
+```
+然后导入, 将`Classes.App`写在className的地方
+
+```js
+import Classes from './App.css';
+```
 

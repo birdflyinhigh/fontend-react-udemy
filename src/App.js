@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './App.css';
+import Classes from './App.css';
+import Person from './Person';
 
-import Person from './Person'
 
 class App extends Component {
     state = {
@@ -11,7 +11,7 @@ class App extends Component {
             {id: '3', name: 'Tao', age: Math.floor(Math.random() * 30)},
         ],
         showPerson: true,
-    }
+    };
     swithNameHandler = (newName) => {
         // alert('this is clicked');
         // DONT DO THIS
@@ -23,10 +23,10 @@ class App extends Component {
                 {name: 'Lin', age: Math.floor(Math.random() * 30)},
             ]
         });
-    }
+    };
 
     nameChangeHandler = (event, id) => {
-        const personIndex = this.state.persons.findIndex(p=> p.id===id);
+        const personIndex = this.state.persons.findIndex(p => p.id === id);
         const person = {...this.state.persons[personIndex]};// this one is recommanded.
         // const person = object.assign({}, this.state.persons[personIndex]);
 
@@ -34,46 +34,36 @@ class App extends Component {
         const persons = [...this.state.persons];
         persons[personIndex] = person;
         this.setState({
-            persons:persons,
+            persons: persons,
         });
-    }
+    };
     togglePersonHandler = () => {
         this.setState({
                 showPerson: !this.state.showPerson,
             }
         )
 
-    }
+    };
 
     deletePersonHandler = (index) => {
         const persons = [...this.state.persons];
         persons.splice(index, 1)
         this.setState({
-            persons:persons,
+            persons: persons,
         })
     };
 
     render() {
-
-        const style = {
-            backgroundColor: 'black',
-            color: 'white',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            cursor: 'pointer',
-        }
-
         let persons = null;
         let classes = []
-        if (this.state.persons.length <=2) {
-            classes.push('red')
+        if (this.state.persons.length <= 2) {
+            classes.push(Classes.red)
         }
 
-        if (this.state.persons.length <=1){
-            classes.push('bold')
+        if (this.state.persons.length <= 1) {
+            classes.push(Classes.bold)
         }
-        if (this.state.showPerson){
+        if (this.state.showPerson) {
             persons = (<div>
                 {this.state.persons.map((person, index) => {
                     return <Person
@@ -85,15 +75,14 @@ class App extends Component {
                     />
                 })}
             </div>);
-            style.backgroundColor = 'red';
+            // style.backgroundColor = Classes.red;
         }
 
-
         return (
-            <div className="App">
+            <div className={Classes.App}>
                 <h1>Cleaver Brooks</h1>
                 <p className={classes.join(' ')}>this is the client</p>
-                <button style={style}
+                <button className={Classes.Button}
                         onClick={this.togglePersonHandler}>Swith Names
                 </button>
                 {persons}
