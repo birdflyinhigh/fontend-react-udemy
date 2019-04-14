@@ -651,3 +651,24 @@ import Classes from './App.css';
 ```
 所有这些的目的是将css的样式只供应到特定的tag上面，而不影响其他的tag
 
+### Debugging react app
+
++ check into which line 
++ react developer tool in Chrome 
+
+
+### Diving Deeper into Component React Internal 
+
+#### 1. A Better Project Structure 
+
++ **render() method shouldn's involve too much UI rendering jsx**
++ outsource the jsx component not in the render() method. 
+***
++ containers： 存放大体的container 
++ components: 存放所有的components
++ assets: 存放所有的静态资源
++ index.js： 存放入口
+
+ 
+
+
