@@ -720,3 +720,13 @@ tateless 组件其实就是一个简单的接受传参的函数，而 stateful �
 #### 5. Convert Stateless to Stateful Component 
 
 props extends from super, using this to access props.
+
+#### 6. component creation in lifecycle 
+
+#### 7 .component udpating lifecycle hooks 
+
+![component update ](./src/assets/images/component_lifecycle_updating.JPG)
+
+
+#### 8. component lifecycle hooks-triggered by state change
+
