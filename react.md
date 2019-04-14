@@ -697,6 +697,7 @@ tateless 组件其实就是一个简单的接受传参的函数，而 stateful �
 + 作用: 接收传参，应用一些逻辑，生成jsx
 + use class based component as less as possible --> manage state 
 + most component should be functional component
++ stateless component更快
 ![stateless vs statefull component](./src/assets/images/stateless_vs_statefull.JPG)
 
 
@@ -715,3 +716,7 @@ tateless 组件其实就是一个简单的接受传参的函数，而 stateful �
 
 ```
 ![component lifecycle creation](./src/assets/images/component_lifecycle_creation.JPG)
+
+#### 5. Convert Stateless to Stateful Component 
+
+props extends from super, using this to access props.
