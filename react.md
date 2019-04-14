@@ -649,4 +649,5 @@ radium可以使用pseudo selector
 ```js
 import Classes from './App.css';
 ```
+所有这些的目的是将css的样式只供应到特定的tag上面，而不影响其他的tag
 

@@ -55,7 +55,8 @@ class App extends Component {
 
     render() {
         let persons = null;
-        let classes = []
+        let classes = [];
+        let btnClass = "";
         if (this.state.persons.length <= 2) {
             classes.push(Classes.red)
         }
@@ -75,14 +76,14 @@ class App extends Component {
                     />
                 })}
             </div>);
-            // style.backgroundColor = Classes.red;
+            btnClass = Classes.red;
         }
 
         return (
             <div className={Classes.App}>
                 <h1>Cleaver Brooks</h1>
                 <p className={classes.join(' ')}>this is the client</p>
-                <button className={Classes.Button}
+                <button className={btnClass}
                         onClick={this.togglePersonHandler}>Swith Names
                 </button>
                 {persons}
