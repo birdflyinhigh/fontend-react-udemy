@@ -4,14 +4,30 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-    state = {
-        persons: [
-            {id: '1', name: 'Zhou', age: Math.floor(Math.random() * 30)},
-            {id: '2', name: 'Zoe', age: Math.floor(Math.random() * 30)},
-            {id: '3', name: 'Tao', age: Math.floor(Math.random() * 30)},
-        ],
-        showPerson: true,
-    };
+
+    constructor(props){
+        super(props);
+        console.log('[App.js] inside constructor');
+        // most project initiate state in constructor here
+        this.state = {
+            persons: [
+                {id: '1', name: 'Zhou', age: Math.floor(Math.random() * 30)},
+                {id: '2', name: 'Zoe', age: Math.floor(Math.random() * 30)},
+                {id: '3', name: 'Tao', age: Math.floor(Math.random() * 30)},
+            ],
+            showPerson: true,
+        };
+    }
+
+    componentWillMount() {
+        console.log('[App.js] inside componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('[App.js] Inside componentDidMount')
+    }
+
+
     swithNameHandler = (newName) => {
         // alert('this is clicked');
         // DONT DO THIS
@@ -54,6 +70,7 @@ class App extends Component {
     };
 
     render() {
+        console.log('[App.js] inside render function')
         let persons = null;
         if (this.state.showPerson) {
             persons = (<div>
