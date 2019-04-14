@@ -16,7 +16,7 @@ const cockpit=(props)=>{
     return (
         <div className={Classes.Cockpit}>
             <h1>Cleaver Brooks</h1>
-            <p className={classes.join(' ')}>this is the client</p>
+            <p className={classes.join(' ')}>{props.appTitle}</p>
             <button className={btnClass}
                     onClick={props.clicked}>Swith Names
             </button>

@@ -678,5 +678,26 @@ import Classes from './App.css';
 
 将每个小的component分解  
 
+#### 3. compare stateless and statefull components
+
+tateless 组件其实就是一个简单的接受传参的函数，而 stateful 组件 是拥有自己状态的组件。
+什么时候该用有状态，什么时候该用无状态。
+
+比如我有一个 dropdown 组件，我点击展开，就会出现下拉。这里就有一个状态 open ，值是 false 或者 true。我更倾向于把它写成一个 stateless 组件， open 的值通过父层传递。
+
+但是把他写成有状态的也未曾不可，状态 open 的值通过父层传递，自己接管。
+
+还是倾向于写 stateless 组件，因为省去了许多生命周期的 Hook，所以会有性能的提升，对 react 后面新的性能优化也有帮助。
+而且状态都是通过父层传递，想想用 redux，那么状态都是可以保存的，本地或者服务器。
+比如我展开了一个 dropdown，然后不小心刷新了页面，新的页面状态并没有丢失，所以 dropdown 还是展开的。这只是其中一个例子。
+
+**You should create functional(stateless) components as often as possible**: 
++ these has a narrow focus and clear responsibility of what they do 
++ 这种不能manipulate state(dont do and can't do!), 因为app越大，越难manage state
++ 作用: 接收传参，应用一些逻辑，生成jsx
++ use class based component as less as possible --> manage state 
++ most component should be functional component
+![stateless vs statefull component](https://note.youdao.com/yws/public/resource/2a660d1e6e1c3e6aef32382e4f86b57b/xmlnote/86A89A75D8C54860B0895F982CAF12E8/4777)
+
 
 
