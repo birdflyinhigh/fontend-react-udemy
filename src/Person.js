@@ -6,13 +6,8 @@ import Radium from 'radium';
 
 // return some jsx
 const person = (props) => {
-    const style = {
-        '@media (min-width: 500px)': {
-            width: '450px'
-        }
-    }
     return (
-    <div className="person" style={style}>
+    <div className="person">
         <p onClick={props.click}>i am {props.name}, and i'm {props.age} years old</p>
         <p>{props.children}</p>
         <input type="text" onChange={props.changed} value={props.name}/>
@@ -21,6 +16,6 @@ const person = (props) => {
 };
 
 
-export default Radium(person);
+export default person;
 
 

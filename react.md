@@ -626,10 +626,12 @@ style = {
 radium可以使用pseudo selector
 
 
-#### 10.  StyleROot 
+#### 5. Using Radium for Media Queries 
 
-#### 11. Enable using css modules 
+#### 6. Enabling Using css Module 
+问题: 是否可以将css写在file里面，然后只应用到一个小的component上面呢？
+尽管css名称是相同的，但是不会影响其他同名的className
 
-css file will only take effect in the component. 
+
 
 
