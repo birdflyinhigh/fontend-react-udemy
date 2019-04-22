@@ -721,12 +721,36 @@ tateless 组件其实就是一个简单的接受传参的函数，而 stateful �
 
 props extends from super, using this to access props.
 
-#### 6. component creation in lifecycle 
+#### 6. component creation in lifecycle
 
-#### 7 .component udpating lifecycle hooks 
+### only available in stateful component
++ constructor(): call super()+define state property;  不要造成side effect, 比如发送request
++ componentWillMount(): update state, last minute optimization
++ render():
++ render child component();
++ componentDidMount(): 不要更新state, 因为会重新render()
+
+
+
+#### 7 .component udpating lifecycle hooks
+2中 by parent
+
++ componentWillReceiveProps
++ shouldComponentUpdate()  --> boolean   --> 决定是否继续
++ componentWillUpdate() --> sync state to props
++ render() --> 重新render()
++ componentDidUpdate() --> 不要更改state
 
 ![component update ](./src/assets/images/component_lifecycle_updating.JPG)
 
 
 #### 8. component lifecycle hooks-triggered by state change
+internal update.
+**由state变化导致的update过程
+
++ shouldComponentUpdate()  --> boolean   --> 决定是否继续
++ componentWillUpdate() --> sync state to props
++ render() --> 重新render()
++ componentDidUpdate() --> 不要更改state
+
 
